@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: propbot-backend
+    name: doorbotai-backend
     env: node
     plan: free
     buildCommand: npm install

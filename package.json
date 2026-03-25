@@ -1,7 +1,7 @@
 {
-  "name": "propbot-backend",
-  "version": "1.0.0",
-  "description": "PropBot AI — Real Estate Lead Voice Bot Backend",
+  "name": "doorbotai-backend",
+  "version": "2.0.0",
+  "description": "DoorBot AI — Real Estate Lead Voice Bot",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -1,12 +1,12 @@
-# PropBot AI — Real Estate Lead Voice Bot
+# DoorBot AI — Real Estate Lead Voice Bot
 
 > *"We find leads, call them, qualify them, and book appointments — your agent just shows up."*
 
 ---
 
-## What is PropBot AI?
+## What is DoorBot AI?
 
-PropBot AI is a fully automated real estate lead generation and qualification system. It finds buyer/seller leads from multiple sources, calls them via AI voice, qualifies them, books appointments, and notifies the agent — all automatically, 24/7.
+DoorBot AI is a fully automated real estate lead generation and qualification system. It finds buyer/seller leads from multiple sources, calls them via AI voice, qualifies them, books appointments, and notifies the agent — all automatically, 24/7.
 
 **No manual work. No missed leads. No excuses.**
 
@@ -88,7 +88,7 @@ Agent gets email: "Hot lead booked! Sarah — $650K — Tuesday 2pm"
 ## Project Structure
 
 ```
-propbot-backend/
+doorbotai-backend/
 ├── server.js                 ← Main Express server
 ├── dashboard.html            ← Agent dashboard UI
 ├── package.json
@@ -109,7 +109,7 @@ propbot-backend/
 
 ### Step 1 — GitHub
 ```
-1. Create new repo: propbot-backend
+1. Create new repo: doorbotai-backend
 2. Upload all files (keep services/ folder structure)
 3. Commit
 ```
@@ -256,7 +256,7 @@ Works on WordPress, Wix, Squarespace, Webflow — anywhere.
 ## Google Cloud Setup
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com)
-2. Create project: `PropBot`
+2. Create project: `DoorBot AI`
 3. Enable APIs:
    - Google Sheets API
    - Google Calendar API
@@ -296,7 +296,7 @@ BOT IS LIVE ✅
 |---------|-------|-------|------------|-------------|--------------|
 | Ylopo | $300-1000/mo + $250 setup | ✅ | ❌ | ❌ | ❌ |
 | RealtyChatbot | $149 + $995 setup | ❌ | ✅ | ❌ | ❌ |
-| **PropBot AI** | **$149-599/mo + $100 setup** | **✅** | **✅** | **✅** | **✅** |
+| **DoorBot AI** | **$149-599/mo + $100 setup** | **✅** | **✅** | **✅** | **✅** |
 
 ---
 
@@ -311,4 +311,4 @@ BOT IS LIVE ✅
 
 ---
 
-Built with ❤️ by PropBot AI
+Built with ❤️ by DoorBot AI

@@ -16,8 +16,8 @@ async function bookAppointment({ agentEmail, leadName, leadPhone, appointmentDat
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
 
     const event = {
-      summary: `🔥 PropBot Lead — ${leadName}`,
-      description: `Lead Details:\nName: ${leadName}\nPhone: ${leadPhone}\nBudget: ${budget}\nCity: ${city}\n\nBooked via PropBot AI`,
+      summary: `🔥 DoorBot AI Lead — ${leadName}`,
+      description: `Lead Details:\nName: ${leadName}\nPhone: ${leadPhone}\nBudget: ${budget}\nCity: ${city}\n\nBooked via DoorBot AI`,
       start: {
         dateTime: startTime.toISOString(),
         timeZone: 'America/New_York',

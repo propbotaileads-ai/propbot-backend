@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PropBot AI — Agent Dashboard</title>
+<title>DoorBot AI — Agent Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -154,7 +154,7 @@ select.form-control{cursor:pointer;}
 <body>
 
 <aside class="sidebar">
-  <div class="sidebar-logo">Prop<span>Bot</span></div>
+  <div class="sidebar-logo">Door<span>Bot</span> AI</div>
   <nav class="sidebar-nav">
     <div class="nav-item active" onclick="showPanel('overview',this)">◈ &nbsp;Overview</div>
     <div class="nav-item" onclick="showPanel('leads',this)">◉ &nbsp;Leads</div>
@@ -180,7 +180,7 @@ select.form-control{cursor:pointer;}
     <div class="topbar-title" id="panel-title">Overview</div>
     <div class="topbar-right">
       <div class="status-badge" id="bot-status">● Bot Active</div>
-      <button class="btn-sm" onclick="window.open('https://propbot.ai','_blank')">← Back to Site</button>
+      <button class="btn-sm" onclick="window.open('https://doorbotai.ai','_blank')">← Back to Site</button>
     </div>
   </div>
 
@@ -414,8 +414,8 @@ select.form-control{cursor:pointer;}
 <div class="toast" id="toast"></div>
 
 <script>
-const BASE_URL = 'https://propbot-backend-oucg.onrender.com';
-const AGENT_ID = new URLSearchParams(window.location.search).get('agent') || localStorage.getItem('propbot_agent_id') || '';
+const BASE_URL = 'https://doorbotai-backend-oucg.onrender.com';
+const AGENT_ID = new URLSearchParams(window.location.search).get('agent') || localStorage.getItem('doorbotai_agent_id') || '';
 
 let agentData = {};
 
@@ -427,7 +427,7 @@ async function init() {
     showToast('No agent ID found! Add ?agent=YOUR_ID to URL', 'error');
     return;
   }
-  localStorage.setItem('propbot_agent_id', AGENT_ID);
+  localStorage.setItem('doorbotai_agent_id', AGENT_ID);
 
   try {
     const res = await fetch(`${BASE_URL}/api/dashboard/${AGENT_ID}`);

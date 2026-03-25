@@ -1,12 +1,10 @@
 const { v4: uuidv4 } = require('uuid');
-const db = require('./database');
 
-// In-memory fallback
 const agentsCache = {};
 
 async function createAgent(agentData) {
-  const agentId = agentData.agentId || uuidv4().split('-')[0];
-  
+  const agentId = uuidv4().split('-')[0];
+
   const agent = {
     agentId,
     agentName: agentData.agentName || 'Your Agent',
@@ -29,41 +27,61 @@ async function createAgent(agentData) {
     leads: [],
   };
 
-  // Save to MongoDB
-  await db.saveAgent(agent);
-  // Also keep in memory cache
   agentsCache[agentId] = agent;
-  
+
+  try {
+    const db = require('./database');
+    await db.saveAgent(agent);
+    console.log('[DoorBot AI] Agent saved to MongoDB:', agentId);
+  } catch (err) {
+    console.log('[DoorBot AI] MongoDB skip, using memory:', err.message);
+  }
+
   console.log('[DoorBot AI] Agent created:', agentId, agent.agentName);
   return agent;
 }
 
 async function getAgent(agentId) {
-  // Try cache first
   if (agentsCache[agentId]) return agentsCache[agentId];
-  
-  // Try MongoDB
-  const agent = await db.findAgent(agentId);
-  if (agent) {
-    agentsCache[agentId] = agent;
-    return agent;
+
+  try {
+    const db = require('./database');
+    const agent = await db.findAgent(agentId);
+    if (agent) {
+      agentsCache[agentId] = agent;
+      return agent;
+    }
+  } catch (err) {
+    console.log('[DoorBot AI] MongoDB read skip:', err.message);
   }
-  
+
   return null;
 }
 
 async function updateAgent(agentId, updates) {
   const agent = await getAgent(agentId);
   if (!agent) return null;
-  
+
   const updated = { ...agent, ...updates, updatedAt: new Date().toISOString() };
   agentsCache[agentId] = updated;
-  await db.saveAgent(updated);
+
+  try {
+    const db = require('./database');
+    await db.saveAgent(updated);
+  } catch (err) {
+    console.log('[DoorBot AI] MongoDB update skip:', err.message);
+  }
+
   return updated;
 }
 
 async function getAllAgents() {
-  return await db.findAllAgents();
+  try {
+    const db = require('./database');
+    return await db.findAllAgents();
+  } catch (err) {
+    return Object.values(agentsCache);
+  }
 }
 
 async function deactivateAgent(agentId) {
